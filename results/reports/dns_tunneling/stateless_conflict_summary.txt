@@ -1,0 +1,9 @@
+Feature family: stateless
+Total rows: 102774
+Conflicting feature combinations: 36
+Rows involved in conflicts: 66440
+Conflicting rows by label:
+target
+0    23777
+1    42663
+Name: count, dtype: int64

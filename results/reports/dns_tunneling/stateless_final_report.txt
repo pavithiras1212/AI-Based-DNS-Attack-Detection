@@ -1,0 +1,53 @@
+DNS TUNNELING: STATELESS MODEL
+==================================================
+
+{
+  "feature_family": "stateless",
+  "original_rows": 102774,
+  "rows_with_conflicting_numeric_vectors": 66440,
+  "conflicting_numeric_combinations": 36,
+  "rows_after_conflict_filter": 36334,
+  "rows_after_exact_deduplication": 3390,
+  "numeric_feature_count": 12,
+  "training_rows": 2542,
+  "testing_rows": 848,
+  "test_benign_rows": 845,
+  "test_attack_rows": 3,
+  "accuracy": 0.9941037735849056,
+  "balanced_accuracy": 0.49881656804733726,
+  "attack_precision": 0.0,
+  "attack_recall": 0.0,
+  "attack_f1": 0.0,
+  "roc_auc": 0.8136094674556212,
+  "evaluation": "Stratified random row split; preliminary baseline, not unseen-capture validation."
+}
+
+Classification report:
+              precision    recall  f1-score   support
+
+      Benign       1.00      1.00      1.00       845
+      Attack       0.00      0.00      0.00         3
+
+    accuracy                           0.99       848
+   macro avg       0.50      0.50      0.50       848
+weighted avg       0.99      0.99      0.99       848
+
+Confusion matrix [rows=actual, columns=predicted]:
+[[843   2]
+ [  3   0]]
+
+Features used:
+FQDN_count
+subdomain_length
+upper
+lower
+numeric
+entropy
+special
+labels
+labels_max
+labels_average
+len
+subdomain
+
+LIMITATION: Random row splitting can produce optimistic results when observations from the same capture occur in both train and test sets. Validate on independent captures before claiming real-world generalization.

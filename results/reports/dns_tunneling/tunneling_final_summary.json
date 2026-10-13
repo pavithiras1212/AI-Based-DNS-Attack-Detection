@@ -1,0 +1,24 @@
+[
+  {
+    "family": "stateful",
+    "model_exists": true,
+    "feature_count": 20,
+    "sample_prediction_check": "passed",
+    "heldout_attack_file_count": 6,
+    "attack_precision": 0.646846624785978,
+    "attack_recall": 0.9809156477184476,
+    "attack_f1": 0.776408494770128,
+    "balanced_accuracy": 0.9854422014287025
+  },
+  {
+    "family": "stateless",
+    "model_exists": true,
+    "feature_count": 12,
+    "sample_prediction_check": "passed",
+    "heldout_attack_file_count": 6,
+    "attack_precision": 0.6766298165254522,
+    "attack_recall": 0.9548402255639098,
+    "attack_f1": 0.7895363608922114,
+    "balanced_accuracy": 0.969418551501705
+  }
+]

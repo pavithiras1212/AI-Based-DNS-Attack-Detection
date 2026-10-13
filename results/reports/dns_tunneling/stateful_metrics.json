@@ -1,0 +1,20 @@
+{
+  "feature_family": "stateful",
+  "original_rows": 34063,
+  "rows_with_conflicting_numeric_vectors": 17723,
+  "conflicting_numeric_combinations": 91,
+  "rows_after_conflict_filter": 16340,
+  "rows_after_exact_deduplication": 16159,
+  "numeric_feature_count": 20,
+  "training_rows": 12119,
+  "testing_rows": 4040,
+  "test_benign_rows": 4031,
+  "test_attack_rows": 9,
+  "accuracy": 0.9972772277227723,
+  "balanced_accuracy": 0.9432040574437002,
+  "attack_precision": 0.4444444444444444,
+  "attack_recall": 0.8888888888888888,
+  "attack_f1": 0.5925925925925926,
+  "roc_auc": 0.9432040574437001,
+  "evaluation": "Stratified random row split; preliminary baseline, not unseen-capture validation."
+}

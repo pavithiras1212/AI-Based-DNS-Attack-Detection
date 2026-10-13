@@ -46,14 +46,20 @@ captures/*
 *.pcap
 *.pcapng
 
+
 # Generated results
 results/*
 !results/figures/
 !results/reports/
+
+# Keep generated figures and reports
 results/figures/*
 !results/figures/.gitkeep
 results/reports/*
 !results/reports/.gitkeep
+!results/reports/dns_tunneling/
+results/reports/dns_tunneling/*
+
 
 # Logs
 *.log

@@ -1,0 +1,33 @@
+{
+  "feature_family": "stateless",
+  "original_rows": 102774,
+  "conflicting_numeric_combinations": 36,
+  "rows_after_deduplication": 3462,
+  "numeric_feature_count": 12,
+  "train_rows": 2596,
+  "test_rows": 866,
+  "test_benign_rows": 854,
+  "test_attack_rows": 12,
+  "accuracy": 0.9826789838337182,
+  "balanced_accuracy": 0.7858118657298985,
+  "attack_precision": 0.4117647058823529,
+  "attack_recall": 0.5833333333333334,
+  "attack_f1": 0.4827586206896552,
+  "roc_auc": 0.8910031225604997,
+  "evaluation_method": "Stratified random row split; preliminary only"
+}
+
+              precision    recall  f1-score   support
+
+      Benign       0.99      0.99      0.99       854
+      Attack       0.41      0.58      0.48        12
+
+    accuracy                           0.98       866
+   macro avg       0.70      0.79      0.74       866
+weighted avg       0.99      0.98      0.98       866
+
+Confusion matrix:
+[[844  10]
+ [  5   7]]
+
+Limitations: random row split; repeated feature vectors may occur in both sets. Conflicting labels remain in the data. Independent-capture validation is still required.

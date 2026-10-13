@@ -1,0 +1,61 @@
+DNS TUNNELING: STATEFUL MODEL
+==================================================
+
+{
+  "feature_family": "stateful",
+  "original_rows": 34063,
+  "rows_with_conflicting_numeric_vectors": 17723,
+  "conflicting_numeric_combinations": 91,
+  "rows_after_conflict_filter": 16340,
+  "rows_after_exact_deduplication": 16159,
+  "numeric_feature_count": 20,
+  "training_rows": 12119,
+  "testing_rows": 4040,
+  "test_benign_rows": 4031,
+  "test_attack_rows": 9,
+  "accuracy": 0.9972772277227723,
+  "balanced_accuracy": 0.9432040574437002,
+  "attack_precision": 0.4444444444444444,
+  "attack_recall": 0.8888888888888888,
+  "attack_f1": 0.5925925925925926,
+  "roc_auc": 0.9432040574437001,
+  "evaluation": "Stratified random row split; preliminary baseline, not unseen-capture validation."
+}
+
+Classification report:
+              precision    recall  f1-score   support
+
+      Benign       1.00      1.00      1.00      4031
+      Attack       0.44      0.89      0.59         9
+
+    accuracy                           1.00      4040
+   macro avg       0.72      0.94      0.80      4040
+weighted avg       1.00      1.00      1.00      4040
+
+Confusion matrix [rows=actual, columns=predicted]:
+[[4021   10]
+ [   1    8]]
+
+Features used:
+rr
+A_frequency
+NS_frequency
+CNAME_frequency
+SOA_frequency
+NULL_frequency
+PTR_frequency
+HINFO_frequency
+MX_frequency
+TXT_frequency
+AAAA_frequency
+SRV_frequency
+OPT_frequency
+rr_count
+rr_name_entropy
+rr_name_length
+distinct_ns
+a_records
+ttl_mean
+ttl_variance
+
+LIMITATION: Random row splitting can produce optimistic results when observations from the same capture occur in both train and test sets. Validate on independent captures before claiming real-world generalization.

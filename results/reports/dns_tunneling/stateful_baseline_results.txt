@@ -1,0 +1,21 @@
+Feature family: stateful
+Rows after deduplication: 16785
+Numeric features: 20
+Accuracy: 0.9902
+Attack F1: 0.8656
+
+Classification report:
+              precision    recall  f1-score   support
+
+      Benign       1.00      0.99      0.99      4060
+      Attack       0.79      0.96      0.87       137
+
+    accuracy                           0.99      4197
+   macro avg       0.89      0.98      0.93      4197
+weighted avg       0.99      0.99      0.99      4197
+
+Confusion matrix (rows=actual, columns=predicted; Benign then Attack):
+[[4024   36]
+ [   5  132]]
+
+CAUTION: Preliminary random-row split. Related rows from the same capture may occur in both sets; do not treat these metrics as final.
