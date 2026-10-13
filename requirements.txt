@@ -1,0 +1,21 @@
+
+# Data analysis
+numpy>=1.26,<3.0
+pandas>=2.2,<4.0
+
+# Machine learning
+scikit-learn>=1.5,<2.0
+joblib>=1.4,<2.0
+
+# Network packet analysis
+scapy>=2.6,<3.0
+
+# Visualisation
+matplotlib>=3.9,<4.0
+seaborn>=0.13,<1.0
+
+# Dashboard
+streamlit>=1.40,<2.0
+
+# Environment configuration
+python-dotenv>=1.0,<2.0

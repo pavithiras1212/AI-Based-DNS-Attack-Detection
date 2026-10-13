@@ -1,0 +1,59 @@
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Testing and code quality
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated models and large datasets
+models/*
+!models/.gitkeep
+!models/dns_tunneling/
+!models/dns_tunneling/*.joblib
+
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Network packet captures can contain sensitive information
+captures/*
+!captures/.gitkeep
+*.pcap
+*.pcapng
+
+# Generated results
+results/*
+!results/figures/
+!results/reports/
+results/figures/*
+!results/figures/.gitkeep
+results/reports/*
+!results/reports/.gitkeep
+
+# Logs
+*.log
