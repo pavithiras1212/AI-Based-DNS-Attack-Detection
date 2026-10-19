@@ -63,3 +63,9 @@ results/reports/dns_tunneling/*
 
 # Logs
 *.log
+
+# DNS amplification baseline model and evaluation reports
+!models/dns_amplification/
+!models/dns_amplification/*.joblib
+!results/reports/dns_amplification/
+!results/reports/dns_amplification/*

@@ -1,0 +1,45 @@
+{
+  "task": "Benign vs DrDoS_DNS flow classification",
+  "positive_class": "DrDoS_DNS",
+  "negative_class": "Benign",
+  "dataset_rows_used": 6703,
+  "feature_count": 65,
+  "dropped_feature_columns": [
+    "Bwd PSH Flags",
+    "Fwd URG Flags",
+    "Bwd URG Flags",
+    "FIN Flag Count",
+    "PSH Flag Count",
+    "ECE Flag Count",
+    "Fwd Avg Bytes/Bulk",
+    "Fwd Avg Packets/Bulk",
+    "Fwd Avg Bulk Rate",
+    "Bwd Avg Bytes/Bulk",
+    "Bwd Avg Packets/Bulk",
+    "Bwd Avg Bulk Rate"
+  ],
+  "train_rows": 5027,
+  "test_rows": 1676,
+  "random_state": 42,
+  "accuracy": 0.9958233890214797,
+  "balanced_accuracy": 0.9958426903332314,
+  "precision_attack": 0.9967248908296943,
+  "recall_attack": 0.9956379498364231,
+  "f1_attack": 0.9961811238406983,
+  "roc_auc": 0.9999698277162599,
+  "confusion_matrix_labels": [
+    "Benign",
+    "DrDoS_DNS"
+  ],
+  "confusion_matrix": [
+    [
+      756,
+      3
+    ],
+    [
+      4,
+      913
+    ]
+  ],
+  "validation_note": "Random stratified holdout from the supplied CSV; not independent capture-level or real-world validation."
+}
