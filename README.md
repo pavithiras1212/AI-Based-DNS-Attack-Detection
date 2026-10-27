@@ -1,37 +1,50 @@
-﻿# AI-Based DNS Attack Detection System
+# AI-Based DNS Attack Detection System
 
-A research prototype with two current components.
+A research prototype combining three DNS security workstreams in one Streamlit dashboard.
 
-## DNS amplification
+## Components
 
-A Random Forest classifier predicts Benign versus DrDoS_DNS from labelled flow features.
-The supplied 6,703-row CSV produced 99.58% accuracy on a random stratified holdout.
-This is not independent-capture or real-world validation.
+### DNS tunneling
+Stateful and stateless model experiments with saved evaluation reports. Results have class-imbalance limitations and should not be treated as proof of performance on unseen network captures.
 
-## DNS cache-poisoning triage
+### DNS amplification / DoS
+A Random Forest classifier predicts `Benign` or `DrDoS_DNS` from flow-feature CSV records. The supplied 6,703-row dataset produced 99.58% accuracy on a random stratified holdout. This is not independent-capture or live-network validation.
 
-A rule-based analyser checks DNS request-response matching, response timing, and differing answer sets.
-The five functional tests pass. These checks flag suspicious patterns; they do not prove cache poisoning.
+### DNS cache-poisoning triage
+A rule-based PCAP/PCAPNG analyser checks request-response matching and differing DNS answer sets. Alerts are heuristic indicators, not proof that a cache was poisoned.
 
-## Run locally
+## Run locally (Windows PowerShell)
 
-Create and activate a virtual environment, then install dependencies:
+From the project root:
 
 ```powershell
-python -m pip install -r requirements.txt
-python -m pytest .\tests -v
-python -m streamlit run .\src\amplification_dashboard.py
+py -m venv .venv
+$python = ".\.venv\Scripts\python.exe"
+& $python -m pip install -r .\requirements.txt
+& $python -m pytest .\tests -v
+& $python -m streamlit run .\src\unified_dashboard.py
 ```
 
-## Run cache-poisoning checks on a capture
+Open the local URL printed by Streamlit, usually `http://localhost:8501`.
+
+## Demo uploads
+
+The `demo_files` directory contains:
+
+- `dns_amplification_demo.csv` — 10 labelled flow-feature examples for the amplification upload.
+- `dns_cache_poisoning_demo.pcap` — a synthetic capture designed to demonstrate a conflicting-answer alert.
+
+These demonstrate the upload and analysis workflow; they are not real-world attack validation. The PCAP uses documentation-only IP addresses.
+
+## Run cache-poisoning checks from the command line
 
 ```powershell
-python .\src\cache_poisoning_checks.py .\path\to\capture.pcap --output .\results\reports\dns_cache_poisoning\findings.csv
+$python = ".\.venv\Scripts\python.exe"
+& $python .\src\cache_poisoning_checks.py ".\demo_files\dns_cache_poisoning_demo.pcap" --output ".\results\reports\dns_cache_poisoning\findings.csv"
 ```
 
 ## Limitations
 
-The cache-poisoning component is heuristic triage, not a trained ML model.
-A partial capture can make benign responses appear unmatched, while legitimate DNS rotation can produce different answer sets.
-Independent validation on labelled, suitable cache-poisoning data remains incomplete.
+Random row splits can overstate generalisation to independent captures. The cache-poisoning component is heuristic rather than a trained ML detector. Incomplete captures, legitimate DNS rotation, and record changes can produce alerts. Independent validation against suitable labelled cache-poisoning captures remains incomplete.
+
 Only analyse traffic you are authorised to inspect.
